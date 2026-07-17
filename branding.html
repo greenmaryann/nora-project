@@ -11,216 +11,187 @@
     --bg:#FAFAFA;--white:#FFFFFF;--border:#E4E4E4;--grayL:#F1F1F1;--grayLL:#F7F7F7;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--dark);padding:40px 32px 96px;-webkit-font-smoothing:antialiased;}
-  .wrap{max-width:860px;margin:0 auto;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--dark);min-height:100vh;padding:48px 40px 80px;-webkit-font-smoothing:antialiased;}
 
-  .header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+  .header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid var(--border);}
   .header h1{font-size:24px;font-weight:600;letter-spacing:-0.5px;}
-  .header .sub{font-size:12.5px;color:var(--gray);margin-top:4px;font-weight:400;}
+  .header p.sub{font-size:12.5px;color:var(--gray);margin-top:4px;font-weight:400;}
   .badge{font-size:11px;font-weight:500;color:var(--mid);background:var(--white);border:1px solid var(--border);border-radius:20px;padding:5px 12px;white-space:nowrap;}
 
-  .intro{font-size:13px;color:var(--mid);line-height:1.65;margin:18px 0 44px;padding:16px 20px;background:var(--white);border:1px solid var(--border);border-radius:12px;font-weight:300;}
+  .intro{font-size:13px;color:var(--mid);line-height:1.7;margin-bottom:48px;max-width:760px;font-weight:300;}
   .intro strong{font-weight:500;color:var(--dark);}
 
-  .bloque{margin-bottom:52px;}
-  .bloque-head{display:flex;align-items:baseline;gap:12px;margin-bottom:8px;}
-  .bloque-num{font-size:11px;font-weight:500;color:var(--light);letter-spacing:.08em;text-transform:uppercase;}
-  .bloque-head h2{font-size:17px;font-weight:600;letter-spacing:-0.3px;}
-  .owner{font-size:11px;color:var(--gray);margin-left:auto;font-weight:400;}
-  .bloque-sub{font-size:13px;color:var(--gray);margin-bottom:22px;font-weight:300;line-height:1.6;}
+  .cap{margin-bottom:56px;}
+  .cap-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+  .cap-num{font-size:11px;font-weight:500;color:var(--light);letter-spacing:.08em;text-transform:uppercase;}
+  .cap-head h2{font-size:18px;font-weight:600;letter-spacing:-0.3px;}
+  .cap-sub{font-size:13px;color:var(--gray);margin-bottom:28px;font-weight:300;line-height:1.6;max-width:760px;}
 
-  .slide{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:12px;}
-  .slide-top{display:flex;align-items:baseline;gap:10px;margin-bottom:13px;}
-  .slide-num{font-size:11px;font-weight:500;color:var(--light);min-width:22px;}
-  .slide-title{font-size:14.5px;font-weight:600;letter-spacing:-0.2px;}
-  .tag{font-size:10px;font-weight:500;color:var(--gray);background:var(--grayL);border-radius:20px;padding:3px 10px;margin-left:auto;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;}
-  .field{margin-bottom:11px;}
-  .field:last-child{margin-bottom:0;}
-  .field-label{font-size:10.5px;font-weight:500;color:var(--gray);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
-  .field-body{font-size:13px;color:var(--mid);line-height:1.65;font-weight:300;}
-  .field-body strong{font-weight:500;color:var(--dark);}
-  .copy{font-size:13.5px;color:var(--dark);line-height:1.6;font-weight:400;padding:12px 16px;background:var(--grayLL);border-radius:10px;border:1px solid var(--grayL);}
-  .vende{font-size:12.5px;color:var(--mid);line-height:1.6;font-weight:300;padding-left:14px;border-left:2px solid var(--dark);}
+  .seccion{margin-bottom:32px;max-width:760px;}
+  .seccion h3{font-size:14.5px;font-weight:600;letter-spacing:-0.2px;margin-bottom:10px;}
+  .seccion p{font-size:13px;color:var(--mid);line-height:1.75;font-weight:300;margin-bottom:10px;}
+  .seccion p:last-child{margin-bottom:0;}
+  .seccion strong{font-weight:500;color:var(--dark);}
+  .seccion em{font-style:italic;}
 
-  @media(max-width:600px){body{padding:32px 16px 80px;}.header{flex-direction:column;gap:10px;}}
+  @media(max-width:600px){body{padding:32px 18px 72px;}.header{flex-direction:column;align-items:flex-start;gap:10px;}}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <div class="header">
-    <div>
-      <h1>Branding</h1>
-      <p class="sub">Mujer Financiera · identidad + pitch por approaches</p>
-    </div>
-    <span class="badge">Guión de presentación</span>
+<div class="header">
+  <div>
+    <h1>Branding</h1>
+    <p class="sub">Mujer Financiera · identidad + pitch por approaches</p>
   </div>
-
-  <p class="intro"><strong>Estructura del pitch:</strong> 5 capítulos — Product → Design → Showcase → Tech → Business. El showcase va antes de tech a propósito: primero enamorar, después explicar cómo se construye. El Business Approach es el capítulo de las stakeholders: traemos 4 approaches y les pedimos que completen el quinto. El nombre propuesto ("Nora") aparece solo acá, como propuesta pendiente de aprobación.</p>
-
-  <!-- ============ CAP 1: PRODUCT ============ -->
-  <div class="bloque">
-    <div class="bloque-head"><span class="bloque-num">Cap. 1</span><h2>Product Approach</h2><span class="owner">presenta: Mary</span></div>
-    <p class="bloque-sub">El porqué y el qué. Valida el trabajo de Sabri antes de mostrar nada nuevo, y deja plantada la idea del producto completa.</p>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">01</span><span class="slide-title">Cover</span></div>
-      <div class="field"><div class="field-label">En pantalla</div><div class="field-body">Personaje + wordmark. Fondo limpio, el personaje respira.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">Tu plata, con alguien que la entiende.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">02</span><span class="slide-title">La oportunidad</span><span class="tag">del pitch v1</span></div>
-      <div class="field"><div class="field-label">En pantalla</div><div class="field-body">Los números grandes: <strong>comunidad MF +1M en 12 países</strong> · <strong>470K usuarias históricas</strong> de la app anterior. Confirmar cifras vigentes con Ale antes del pitch.</div></div>
-      <div class="field"><div class="field-label">Argumento</div><div class="field-body">Sabri lleva años enseñando a manejar el dinero — y funciona. Pero el aprendizaje se queda en teoría si no hay una herramienta que lo convierta en hábito. Esa herramienta tiene que integrarse a la vida de la usuaria, sin fricción.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">La demanda ya existe. La comunidad ya existe. Lo que falta es la herramienta. Y hoy, con AI atravesando diseño y tecnología, podemos construirla mejor y más rápido que nunca.</div></div>
-      <div class="field"><div class="field-label">Vende</div><div class="vende">Para Sabri este slide dice: <strong>tu trabajo funciona, este producto lo capitaliza.</strong> No es empezar de cero — es cosechar un activo que ella ya construyó.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">03</span><span class="slide-title">La usuaria</span><span class="tag">del pitch v1</span></div>
-      <div class="field"><div class="field-label">En pantalla</div><div class="field-body">Perfil: mujeres 25–60 (core 35–44), 50% emprendedoras / 50% profesionales, 12 países, mayormente Argentina. Metas: viajar, casa propia, familia, libertad financiera. Lo que buscan de verdad: <strong>paz mental con su plata.</strong></div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">El mercado sigue lanzando productos que no están diseñados con las mujeres en mente. Proponemos lo contrario: un producto que sea para todos — porque las mujeres sí podemos diseñar para todos.</div></div>
-      <div class="field"><div class="field-label">Vende</div><div class="vende">Ojo con el framing: no es una app "para mujeres" como nicho. Es <strong>diseño liderado por mujeres que sirve a todos</strong> — amplía mercado sin diluir la identidad MF.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">04</span><span class="slide-title">El salto</span></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">MF le enseñó a miles de mujeres a manejar su plata. Este producto es donde lo ponen en práctica, todos los días.</div></div>
-      <div class="field"><div class="field-label">Vende</div><div class="vende">El puente: <strong>MF es la teoría, el PFM es la práctica.</strong> Educación → acción. No es un producto aislado — es el siguiente capítulo de MF.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">05</span><span class="slide-title">Las tres capas</span></div>
-      <div class="field"><div class="field-label">En pantalla</div><div class="field-body"><strong>Registrar</strong> (texto, audio, WhatsApp) → <strong>Entender</strong> (balance, categorías, multi-moneda) → <strong>Decidir</strong> (insights, proyecciones, AI). Mapea con el feature pool del v1: Data Gathering / Tools / Intelligence.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">Los PFM se quedan en la capa 1. Este producto existe por la capa 3.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">06</span><span class="slide-title">Crece con vos</span></div>
-      <div class="field"><div class="field-label">En pantalla</div><div class="field-body">La progresión empty → parcial → completo, contada como feature: cuantos más datos le das, más inteligente se vuelve.</div></div>
-      <div class="field"><div class="field-label">Vende</div><div class="vende">Esto vende retención: el valor del producto aumenta con el uso, no se agota.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">07</span><span class="slide-title">Roadmap</span></div>
-      <div class="field"><div class="field-label">En pantalla</div><div class="field-body">Mes 1: MVP con paridad mejorada. 6 meses: revisión de monetización. Después: la visión de infraestructura (se desarrolla en Tech). Sin fechas duras, solo dirección.</div></div>
-    </div>
-  </div>
-
-  <!-- ============ CAP 2: DESIGN ============ -->
-  <div class="bloque">
-    <div class="bloque-head"><span class="bloque-num">Cap. 2</span><h2>Design Approach</h2><span class="owner">presenta: Mary</span></div>
-    <p class="bloque-sub">Por qué el nombre, por qué el personaje, cómo se ancla con MF, y los principios que gobiernan la UI.</p>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">08</span><span class="slide-title">¿Por qué "Nora"? (propuesta de nombre)</span></div>
-      <div class="field"><div class="field-label">Argumentos</div><div class="field-body">Suena a <strong>persona, no a app</strong> — porque el producto acompaña, no calcula. Corto, femenino, cálido. Se pronuncia igual en los 12 países, sin traducción ni fonética rara. Funciona en voz: "preguntale a Nora".</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">No le pedís ayuda a una app. Se la pedís a Nora.</div></div>
-      <div class="field"><div class="field-label">Vende</div><div class="vende">Evitar etimologías ("Nora significa luz"). El argumento fuerte es fonético y de personalidad, no etimológico. <strong>Nombre pendiente de aprobación de Sabri.</strong></div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">09</span><span class="slide-title">¿Por qué el personaje?</span><span class="tag">refuerzo del v1</span></div>
-      <div class="field"><div class="field-label">En pantalla</div><div class="field-body">El círculo con 3–4 expresiones y variantes de transformación (círculo → flor, etc.).</div></div>
-      <div class="field"><div class="field-label">La transformación</div><div class="field-body">Del pitch v1: MF atraviesa un cambio de identidad que se constituye en <strong>enfoque, movimiento y transformación</strong>. La transformación financiera pasa en las decisiones cotidianas — por eso nació un círculo que <strong>se transforma según el contexto</strong>: la marca contando esa historia en cada pantalla.</div></div>
-      <div class="field"><div class="field-label">Argumentos</div><div class="field-body"><strong>Cercanía sin infantilizar</strong> — carita minimalista, no mascota cartoon. <strong>Abstracto a propósito</strong> — un círculo no tiene edad, cuerpo ni clase social: cualquier usuaria se proyecta. <strong>Expresivo</strong> — reacciona a tu estado financiero: es feedback emocional, no decoración.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">Un círculo que se transforma, como la realidad financiera de cada mujer que acompaña. Tiene cara porque las finanzas se sienten — y cambia de expresión porque tu plata también.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">10</span><span class="slide-title">Anclaje visual con MF</span></div>
-      <div class="field"><div class="field-label">En pantalla</div><div class="field-body">Finance Green #29AA8C como puente entre marcas. Avenir Rounded (display, hereda calidez) + Inter (UI, precisión). Lado a lado: identidad MF ↔ identidad del producto.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">Se nota que es hija de MF. Pero tiene voz propia.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">11</span><span class="slide-title">Principios de la UI</span></div>
-      <div class="field"><div class="field-label">Los tres (no más)</div><div class="field-body"><strong>Calma</strong> — las finanzas estresan; la interfaz no. <strong>Claridad</strong> — entendés tu situación en 5 segundos. <strong>Compañía</strong> — el personaje está presente en cada pantalla, no escondido en un chat.</div></div>
-    </div>
-  </div>
-
-  <!-- ============ CAP 3: SHOWCASE ============ -->
-  <div class="bloque">
-    <div class="bloque-head"><span class="bloque-num">Cap. 3</span><h2>Showcase</h2><span class="owner">presenta: Mary</span></div>
-    <p class="bloque-sub">La venta pura: pantallas grandes, poco texto, momento emocional del pitch. Va antes de Tech a propósito — primero enamorar, después explicar.</p>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">12</span><span class="slide-title">Home / balance</span></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">No te muestra datos. Te dice qué significan.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">13</span><span class="slide-title">Registro rápido + insights</span></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">Registrar un gasto toma menos que pagar con QR.</div></div>
-      <div class="field"><div class="field-label">En pantalla</div><div class="field-body">Registro por texto / audio / imagen / PDF. Card de insight contextual ("gastás más los viernes").</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">14</span><span class="slide-title">WhatsApp</span></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">Vive donde ya vivís: registrás por WhatsApp, sin abrir la app.</div></div>
-      <div class="field"><div class="field-label">Vende</div><div class="vende">Slide propia porque es el diferenciador regional. Además siembra la idea que después remata el slide de MCP: el producto va a donde está la usuaria.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">15</span><span class="slide-title">En movimiento — video + piezas</span></div>
-      <div class="field"><div class="field-label">Argumento</div><div class="field-body">El plan de piezas de venta: <strong>video de producto animado</strong> (teaser 30–45s: registrás un gasto, el personaje reacciona, aparece un insight) + assets de ad/marketing con el personaje para el lanzamiento hacia la comunidad MF.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">El personaje en movimiento es el mejor argumento de marca que tenemos. Y es contenido de lanzamiento listo para la comunidad.</div></div>
-      <div class="field"><div class="field-label">Vende</div><div class="vende"><strong>No prometer el video para el MVP</strong> — producción arranca después de aprobar identidad. Presentarlo como plan, no como entregable. Si más adelante existe, puede abrir el pitch en lugar del cover estático.</div></div>
-    </div>
-  </div>
-
-  <!-- ============ CAP 4: TECH ============ -->
-  <div class="bloque">
-    <div class="bloque-head"><span class="bloque-num">Cap. 4</span><h2>Tech Approach</h2><span class="owner">presenta: Enoc (backup: Mary)</span></div>
-    <p class="bloque-sub">Cómo se construye y por qué escala. Aterriza mejor acá porque ya vieron el resultado. Regla del v1: never too technical.</p>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">16</span><span class="slide-title">Cómo la manejamos</span><span class="tag">refuerzo del v1</span></div>
-      <div class="field"><div class="field-label">Argumento</div><div class="field-body">Design system con tokens (color, tipografía, spacing) espejados 1:1 entre Figma y Expo / React Native. Y el approach del v1: <strong>AI atraviesa diseño y tecnología</strong> — un equipo chico que orquesta herramientas para avanzar más lejos y más rápido, sin soltar lo que siempre importó: acompañar a las personas en su transformación financiera.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">Hoy somos orquestadores: dirigimos las herramientas, y cada pantalla nueva sale más rápido y más barata que la anterior.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">17</span><span class="slide-title">Una app, todas las plataformas</span></div>
-      <div class="field"><div class="field-label">Argumento</div><div class="field-body">Stack Expo / React Native: <strong>un solo código para iOS y Android</strong>, releases más rápidos, mantenimiento de un equipo chico. Sumado al WhatsApp bot construido desde cero por Enoc: infraestructura propia, sin dependencias caras.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">Construimos una vez, llegamos a todas. Eso es velocidad y costo bajo control.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">18</span><span class="slide-title">Multi-moneda desde el día 1</span></div>
-      <div class="field"><div class="field-label">Argumento</div><div class="field-body">Pensada para la realidad de la región: pesos, dólares, la moneda que sea, conviviendo en la misma cuenta. Argentina como mercado core lo exige — y de regalo, deja la app lista para los 12 países sin retrabajo.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">En la región, la plata vive en más de una moneda. La app también.</div></div>
-      <div class="field"><div class="field-label">Vende</div><div class="vende">Diferenciador real contra PFMs globales que tratan multi-moneda como caso raro. Acá es el caso normal.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">19</span><span class="slide-title">El producto como infraestructura — MCP</span></div>
-      <div class="field"><div class="field-label">Argumento</div><div class="field-body">Vamos a construir un <strong>MCP server</strong>: cualquier agente de IA — Claude, ChatGPT, el que venga — va a poder usar el PFM como herramienta. Registrar un gasto, consultar el balance, pedir un insight, desde donde sea que la usuaria hable con una IA.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">WhatsApp fue el primer paso. Con MCP, el producto está en cualquier conversación con cualquier IA. No es una app más: es la capa financiera de su vida digital.</div></div>
-      <div class="field"><div class="field-label">Vende</div><div class="vende">El remate del capítulo tech: posiciona al producto como <strong>infraestructura</strong>, no como app. Marcarlo como dirección, no como compromiso de fecha.</div></div>
-    </div>
-  </div>
-
-  <!-- ============ CAP 5: BUSINESS ============ -->
-  <div class="bloque">
-    <div class="bloque-head"><span class="bloque-num">Cap. 5</span><h2>Business Approach</h2><span class="owner">completan: Ale & Sabri</span></div>
-    <p class="bloque-sub">El capítulo de ellas. Traemos 4 approaches; el quinto lo construimos juntas. El cierre del pitch es una agenda de decisiones, no un aplauso.</p>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">20</span><span class="slide-title">Lo que definimos juntas</span></div>
-      <div class="field"><div class="field-label">Las decisiones abiertas</div><div class="field-body"><strong>1. Monetización</strong> — free en MVP, revisión pactada a 6 meses: ¿qué modelos exploramos desde ya? <strong>2. Las 470K</strong> — ¿migramos usuarias de la app anterior o empezamos de cero? (el valor: ¿los datos o el canal?). <strong>3. Go-to-market</strong> — cómo lanzamos hacia la comunidad MF: comunicación, timing, embajadoras. <strong>4. Naming e identidad</strong> — el GO formal del nombre y de la identidad base.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">Producto, diseño y tecnología ya tienen camino. El business approach lo trazamos con ustedes — estas son las cuatro decisiones que lo destraban.</div></div>
-      <div class="field"><div class="field-label">Vende</div><div class="vende">Convierte a Ale y Sabri en <strong>coautoras del plan</strong>, no en audiencia. Y salís del pitch con decisiones o con fechas para tomarlas.</div></div>
-    </div>
-
-    <div class="slide">
-      <div class="slide-top"><span class="slide-num">21</span><span class="slide-title">Cierre</span></div>
-      <div class="field"><div class="field-label">En pantalla</div><div class="field-body">Volver al personaje, solo, respirando.</div></div>
-      <div class="field"><div class="field-label">Copy</div><div class="copy">Mujer Financiera te enseñó. Este producto te acompaña.</div></div>
-    </div>
-  </div>
-
+  <div style="display:flex;gap:8px;"><span class="badge">Documentación del pitch</span><span class="badge" style="background:var(--dark);color:var(--white);border-color:var(--dark);">WIP</span></div>
 </div>
+
+<p class="intro">El pitch se estructura en <strong>cinco capítulos</strong>: Product → Design → Showcase → Tech → Business. El showcase va antes de tech: primero el resultado, después cómo se construye. El quinto capítulo, Business, se completa junto a las stakeholders. El nombre propuesto para el producto ("Nora") aparece únicamente en esta sección, como propuesta pendiente de aprobación.</p>
+
+<!-- ============ CAP 1 ============ -->
+<div class="cap">
+  <div class="cap-head"><span class="cap-num">Cap. 1</span><h2>Product Approach</h2></div>
+  <p class="cap-sub">El porqué y el qué del producto.</p>
+
+  <div class="seccion">
+    <h3>Apertura</h3>
+    <p>El pitch abre con el personaje y el wordmark sobre fondo limpio. <em>Tu plata, con alguien que la entiende.</em></p>
+  </div>
+
+  <div class="seccion">
+    <h3>La oportunidad</h3>
+    <p>La comunidad MF supera el millón de personas en 12 países, y la app anterior acumuló 470K usuarias históricas. Años de educación financiera que funcionan — pero el aprendizaje se queda en teoría si no hay una herramienta que lo convierta en hábito, integrada a la vida de la usuaria y sin fricción.</p>
+    <p>La demanda ya existe. La comunidad ya existe. Lo que falta es la herramienta — y hoy, con AI atravesando diseño y tecnología, podemos construirla mejor y más rápido que nunca.</p>
+  </div>
+
+  <div class="seccion">
+    <h3>La usuaria</h3>
+    <p>Nuestro perfil es de mujeres 25–60 (core 35–44), 50% emprendedoras / 50% profesionales, 12 países, mayormente Argentina. Metas: viajar, casa propia, familia, libertad financiera. Lo que buscan de verdad: paz mental con su plata.</p>
+    <p>El mercado sigue lanzando productos que no están diseñados con las mujeres en mente. Proponemos lo contrario: un producto que sea para todos — porque las mujeres sí podemos diseñar para todos.</p>
+    <p>El framing: no es una app "para mujeres" como nicho. Es diseño liderado por mujeres que sirve a todos — amplía mercado sin diluir la identidad MF.</p>
+  </div>
+
+  <div class="seccion">
+    <h3>El salto</h3>
+    <p>MF le enseñó a miles de mujeres a manejar su plata. Este producto es donde lo ponen en práctica, todos los días. MF es la teoría; el PFM es la práctica: educación que se convierte en acción. No es un producto aislado — es el siguiente capítulo de MF.</p>
+  </div>
+
+  <div class="seccion">
+    <h3>Las tres capas</h3>
+    <p>El producto se organiza en tres capas: <strong>Registrar</strong> (texto, audio, WhatsApp) → <strong>Entender</strong> (balance, categorías, multi-moneda) → <strong>Decidir</strong> (insights, proyecciones, AI). Mapea con el feature pool original: Data Gathering / Tools / Intelligence.</p>
+    <p>Los PFM del mercado se quedan en la capa 1. Este producto existe por la capa 3.</p>
+  </div>
+
+  <div class="seccion">
+    <h3>Crece con vos</h3>
+    <p>La progresión empty → parcial → completo contada como feature: cuantos más datos recibe, más inteligente se vuelve. El valor del producto aumenta con el uso, no se agota — eso construye retención.</p>
+  </div>
+
+  <div class="seccion">
+    <h3>Roadmap</h3>
+    <p>Primer hito: MVP con paridad mejorada. A 6 meses: revisión de monetización. Después: la visión de infraestructura, que se desarrolla en el capítulo Tech. Sin fechas duras — dirección.</p>
+  </div>
+</div>
+
+<!-- ============ CAP 2 ============ -->
+<div class="cap">
+  <div class="cap-head"><span class="cap-num">Cap. 2</span><h2>Design Approach</h2></div>
+  <p class="cap-sub">El nombre, el personaje, el anclaje con MF y los principios de la interfaz.</p>
+
+  <div class="seccion">
+    <h3>El nombre — "Nora" (propuesta)</h3>
+    <p>Suena a persona, no a app — porque el producto acompaña, no calcula. Es corto, femenino y cálido; se pronuncia igual en los 12 países, sin traducción ni fonética rara, y funciona en voz: "preguntale a Nora". <em>No le pedís ayuda a una app. Se la pedís a Nora.</em></p>
+    <p>El argumento del nombre es fonético y de personalidad, no etimológico. Pendiente de aprobación final.</p>
+  </div>
+
+  <div class="seccion">
+    <h3>El personaje</h3>
+    <p>MF atraviesa un cambio de identidad que se constituye en enfoque, movimiento y transformación. La transformación financiera pasa en las decisiones cotidianas — por eso nació un círculo que se transforma según el contexto: la marca contando esa historia en cada pantalla.</p>
+    <p>Tres decisiones lo definen. <strong>Cercanía sin infantilizar:</strong> carita minimalista, no mascota cartoon. <strong>Abstracto a propósito:</strong> un círculo no tiene edad, cuerpo ni clase social — cualquier usuaria se proyecta. <strong>Expresivo:</strong> reacciona al estado financiero; es feedback emocional, no decoración.</p>
+    <p><em>Un círculo que se transforma, como la realidad financiera de cada mujer que acompaña. Tiene cara porque las finanzas se sienten — y cambia de expresión porque tu plata también.</em></p>
+  </div>
+
+  <div class="seccion">
+    <h3>Anclaje visual con MF</h3>
+    <p>Finance Green #29AA8C funciona como puente entre marcas: misma familia cromática, nueva generación. Avenir Rounded en display hereda la calidez; Inter en UI aporta precisión. Se nota que es hija de MF — pero tiene voz propia.</p>
+  </div>
+
+  <div class="seccion">
+    <h3>Principios de la UI</h3>
+    <p>Tres, no más. <strong>Calma:</strong> las finanzas estresan; la interfaz no. <strong>Claridad:</strong> entendés tu situación en 5 segundos. <strong>Compañía:</strong> el personaje está presente en cada pantalla, no escondido en un chat.</p>
+  </div>
+</div>
+
+<!-- ============ CAP 3 ============ -->
+<div class="cap">
+  <div class="cap-head"><span class="cap-num">Cap. 3</span><h2>Showcase</h2></div>
+  <p class="cap-sub">Las pantallas y las piezas. Una idea por slide, poco texto.</p>
+
+  <div class="seccion">
+    <h3>Home / balance</h3>
+    <p>La pantalla principal resume la situación financiera de un vistazo. <em>No te muestra datos. Te dice qué significan.</em></p>
+  </div>
+
+  <div class="seccion">
+    <h3>Registro rápido + insights</h3>
+    <p>Registro por texto, audio, imagen o PDF, con cards de insight contextual ("gastás más los viernes"). <em>Registrar un gasto toma menos que pagar con QR.</em></p>
+  </div>
+
+  <div class="seccion">
+    <h3>WhatsApp</h3>
+    <p>El diferenciador regional: registrás por WhatsApp, sin abrir la app. El producto va a donde está la usuaria — idea que después remata la sección de MCP.</p>
+  </div>
+
+  <div class="seccion">
+    <h3>En movimiento — video + piezas</h3>
+    <p>El plan de piezas de lanzamiento: un video de producto animado (teaser de 30–45s donde se registra un gasto, el personaje reacciona y aparece un insight) más assets de ad y marketing con el personaje, orientados a la comunidad MF. El personaje en movimiento es el mejor argumento de marca — y es contenido de lanzamiento listo para la comunidad. La producción arranca una vez aprobada la identidad.</p>
+  </div>
+</div>
+
+<!-- ============ CAP 4 ============ -->
+<div class="cap">
+  <div class="cap-head"><span class="cap-num">Cap. 4</span><h2>Tech Approach</h2></div>
+  <p class="cap-sub">Cómo se construye y por qué escala. Regla heredada del primer pitch: never too technical.</p>
+
+  <div class="seccion">
+    <h3>Cómo la manejamos</h3>
+    <p>Design system con tokens (color, tipografía, spacing) espejados 1:1 entre Figma y Expo / React Native — diseño y desarrollo hablan el mismo idioma. AI atraviesa diseño y tecnología: un equipo chico que orquesta herramientas para avanzar más lejos y más rápido, sin soltar lo que siempre importó — acompañar a las personas en su transformación financiera. Cada pantalla nueva sale más rápido y más barata que la anterior.</p>
+  </div>
+
+  <div class="seccion">
+    <h3>Una app, todas las plataformas</h3>
+    <p>Stack Expo / React Native: un solo código para iOS y Android, releases más rápidos, mantenimiento posible para un equipo chico. Sumado al WhatsApp bot construido desde cero: infraestructura propia, sin dependencias caras. Construimos una vez, llegamos a todas.</p>
+  </div>
+
+  <div class="seccion">
+    <h3>Multi-moneda desde el día 1</h3>
+    <p>Pensada para la realidad de la región: pesos, dólares, la moneda que sea, conviviendo en la misma cuenta. Argentina como mercado core lo exige — y deja la app lista para los 12 países sin retrabajo. Es un diferenciador real contra PFMs globales que tratan multi-moneda como caso raro: acá es el caso normal.</p>
+  </div>
+
+  <div class="seccion">
+    <h3>El producto como infraestructura — MCP</h3>
+    <p>Vamos a construir un MCP server: cualquier agente de IA — Claude, ChatGPT, el que venga — va a poder usar el PFM como herramienta. Registrar un gasto, consultar el balance, pedir un insight, desde donde sea que la usuaria hable con una IA.</p>
+    <p>WhatsApp fue el primer paso. Con MCP, el producto está en cualquier conversación con cualquier IA: no es una app más, es la capa financiera de la vida digital de la usuaria. Se presenta como dirección, no como compromiso de fecha.</p>
+  </div>
+</div>
+
+<!-- ============ CAP 5 ============ -->
+<div class="cap">
+  <div class="cap-head"><span class="cap-num">Cap. 5</span><h2>Business Approach</h2></div>
+  <p class="cap-sub">El capítulo que se completa con las stakeholders.</p>
+
+  <div class="seccion">
+    <h3>Lo que definimos juntas</h3>
+    <p>Cuatro decisiones abiertas destraban este capítulo. <strong>Monetización:</strong> free en MVP con revisión pactada a 6 meses — qué modelos se exploran desde ya. <strong>Las 470K:</strong> migrar usuarias de la app anterior o empezar de cero — el valor está en los datos o en el canal. <strong>Go-to-market:</strong> cómo se lanza hacia la comunidad MF — comunicación, timing, embajadoras. <strong>Naming e identidad:</strong> el GO formal del nombre y de la identidad base.</p>
+    <p><em>Producto, diseño y tecnología ya tienen camino. El business approach lo trazamos juntas — estas son las cuatro decisiones que lo destraban.</em></p>
+  </div>
+
+  <div class="seccion">
+    <h3>Cierre</h3>
+    <p>El pitch cierra volviendo al personaje, solo, respirando. <em>Mujer Financiera te enseñó. Este producto te acompaña.</em></p>
+  </div>
+</div>
+
 </body>
 </html>
