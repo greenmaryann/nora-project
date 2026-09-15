@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nora · Feedback de usuarias</title>
+<style>
+  :root{
+    --ink:#1E3238;--mid:#5E6B6E;--gray:#8C9598;--light:#B3B9BA;
+    --line:#E4E4E4;--lineL:#F0F0F0;--bgL:#F7F7F7;--white:#FFFFFF;--bg:#FAFAFA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;}
+  .wrap{max-width:820px;margin:0 auto;padding:64px 28px 110px;}
+
+  .head{border-bottom:1px solid var(--ink);padding-bottom:24px;margin-bottom:26px;}
+  .head h1{font-size:28px;font-weight:600;letter-spacing:-0.6px;}
+  .head .sub{font-size:13.5px;color:var(--mid);font-weight:300;margin-top:9px;max-width:62ch;}
+
+  .legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;}
+  .key{font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;border:1px solid var(--line);background:var(--white);color:var(--mid);}
+  .key.mapped{background:var(--ink);color:var(--white);border-color:var(--ink);}
+
+  .group{margin-bottom:34px;}
+  .group-head{font-size:11px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:var(--light);padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:14px;}
+
+  .item{display:flex;gap:14px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:10px;}
+  .badge{font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;flex-shrink:0;margin-top:2px;border:1px solid var(--line);color:var(--mid);white-space:nowrap;}
+  .badge.mapped{background:var(--ink);color:var(--white);border-color:var(--ink);}
+  .item .t{font-size:13.5px;font-weight:500;margin-bottom:4px;}
+  .item .q{font-size:12.5px;color:var(--mid);font-weight:300;line-height:1.6;}
+  .item .r{font-size:11.5px;color:var(--ink);font-weight:500;margin-top:8px;line-height:1.55;}
+
+  .note{background:var(--ink);color:var(--white);border-radius:14px;padding:20px 24px;margin-bottom:34px;}
+  .note p{font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.78);font-weight:300;max-width:66ch;}
+  .note strong{color:var(--white);font-weight:500;}
+
+  @media(max-width:700px){.wrap{padding:40px 18px 70px;}.item{flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <h1>Feedback de usuarias</h1>
+    <p class="sub">Feedback real de la comunidad MF sobre el PFM anterior, con la decisión de producto que generó cada pedido. Es material de archivo: se consulta cuando hay que justificar una decisión, no se trabaja sobre él.</p>
+  </div>
+
+  <div class="legend">
+    <span class="key mapped">Mapeado en el feature list</span>
+    <span class="key">Backlog</span>
+    <span class="key">Decisión de arquitectura</span>
+  </div>
+
+  <div class="note">
+    <p><strong>Nota:</strong> este archivo se extrajo de la Documentación de Producto, donde vivía como una solapa. Conviene verificar contra el original que no haya quedado ningún pedido afuera antes de dar de baja esa solapa.</p>
+  </div>
+
+  <div class="group">
+    <div class="group-head">Ya mapeado</div>
+
+    <div class="item">
+      <span class="badge mapped">Mapeado</span>
+      <div>
+        <div class="t">Widget de registro en pantalla de inicio</div>
+        <div class="q">"Soy de utilizar mucho los widgets del celu en la pantalla de inicio y estaría re bueno si existiera uno de su app donde pueda enseguida reflejar los gastos."</div>
+        <div class="r">→ Incluido en Data Gathering del feature list</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="badge mapped">Mapeado</span>
+      <div>
+        <div class="t">Biometría / bloqueo de pantalla</div>
+        <div class="q">"Quería saber si hay alguna forma de poner un código, diseño de bloqueo o huella que se pueda usar para cada vez que se abre la app."</div>
+        <div class="r">→ Incluido en Base MVP día 1</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="badge mapped">Mapeado</span>
+      <div>
+        <div class="t">Gastos recurrentes automáticos</div>
+        <div class="q">"En la app los gastos fijos no se trasladan automáticamente de un mes a otro. Estaría bueno."</div>
+        <div class="r">→ MVP lanzamiento — gastos recurrentes + IA que detecta patrones</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-head">Decisión de arquitectura</div>
+
+    <div class="item">
+      <span class="badge">Arquitectura</span>
+      <div>
+        <div class="t">Consumos de tarjeta dentro del balance mensual</div>
+        <div class="q">Pedido sobre cómo impactan los consumos con tarjeta en el total del mes.</div>
+        <div class="r">→ Definición para Enoc: los consumos de TDC se incluyen en el cálculo del balance mensual total</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-head">Backlog</div>
+
+    <div class="item">
+      <span class="badge">Backlog</span>
+      <div>
+        <div class="t">Validación de cuenta dentro de la app</div>
+        <div class="q">"Estaría bueno poder validar la cuenta desde la app. Es decir App → mail → app y NO app → mail → página web → app."</div>
+        <div class="r">→ Resuelto en el flujo de onboarding con código de 6 dígitos</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="badge">Backlog</span>
+      <div>
+        <div class="t">Subcategorías</div>
+        <div class="q">"Poder seleccionar subcategorías. Ej: Servicios: Luz/Gas… Para que el filtro desde el reporte sea más sencillo."</div>
+        <div class="r">→ V2 — impacta en categorías, registro y reportes</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="badge">Backlog</span>
+      <div>
+        <div class="t">Buscador de categorías por teclado</div>
+        <div class="q">"Buscador de categorías vía teclado."</div>
+        <div class="r">→ MVP lanzamiento — search dentro del category picker</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="badge">Backlog</span>
+      <div>
+        <div class="t">Presupuestos para meses futuros</div>
+        <div class="q">"Poder ingresar presupuestos para otros meses."</div>
+        <div class="r">→ MVP lanzamiento — al crear presupuesto, selector de mes (actual / próximo / todos)</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="badge">Backlog</span>
+      <div>
+        <div class="t">Fecha de fin para suscripciones en TDC</div>
+        <div class="q">"Sería muy útil tener una fecha de fin para las suscripciones adheridas a tarjetas de crédito. Hoy la única opción de no contemplar un gasto de suscripción en meses siguientes es eliminarlo, lo cual deja los meses anteriores con un saldo inexacto."</div>
+        <div class="r">→ Flujo TDC — campo "fecha de fin" en débito automático recurrente</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="badge">Backlog</span>
+      <div>
+        <div class="t">Recuperar registros borrados</div>
+        <div class="q">"Que se puedan recuperar registros borrados accidentalmente."</div>
+        <div class="r">→ V2 — papelera de movimientos con restauración dentro de X días</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="badge">Backlog</span>
+      <div>
+        <div class="t">Descarga de múltiples reportes en batch</div>
+        <div class="q">"Quería consultarles si hay alguna manera de descargar varios reportes de gastos juntos en lugar de hacer mes a mes."</div>
+        <div class="r">→ Export con selector de rango de meses</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="badge">Backlog</span>
+      <div>
+        <div class="t">Export a Notion</div>
+        <div class="q">Inspirado en un feature de Gasti. Conectás tu cuenta de Notion una vez desde Settings y exportás todos tus registros cuando quieras, o configurás sincronización automática. Feature de power user: no todas lo van a usar, pero las que lo usen lo valoran.</div>
+        <div class="r">→ MVP lanzamiento — Settings › Export, junto con CSV y PDF</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="badge">Backlog</span>
+      <div>
+        <div class="t">Split the bill desde foto</div>
+        <div class="q">Sacás foto al ticket, la IA extrae el total, y antes de confirmar lo dividís entre N personas y registrás solo tu parte. V1 simple: división pareja. V2 granular: la IA extrae ítem por ítem y seleccionás qué consumiste vos.</div>
+        <div class="r">→ MVP lanzamiento V1 dentro del registro por foto · V2 integrado con cuentas compartidas</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
