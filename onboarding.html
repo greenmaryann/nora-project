@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nora · Onboarding + Perfilado — copy deck v1</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+  :root{
+    --ink:#1F1F1F;
+    --mid:#5C5C5C;
+    --gray:#8A8A8A;
+    --line:#E4E4E4;
+    --lineL:#F0F0F0;
+    --bgL:#F7F7F7;
+    --white:#FFFFFF;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:var(--white);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:72px 28px 120px;}
+
+  /* ---------- header ---------- */
+  .head{border-bottom:1px solid var(--ink);padding-bottom:26px;margin-bottom:38px;}
+  .head h1{font-size:30px;font-weight:600;letter-spacing:-0.7px;line-height:1.15;}
+  .head .sub{font-size:13.5px;color:var(--mid);font-weight:300;margin-top:10px;max-width:60ch;}
+  .meta{display:flex;gap:22px;margin-top:20px;font-size:11.5px;color:var(--gray);font-weight:400;flex-wrap:wrap;}
+  .meta b{font-weight:500;color:var(--ink);}
+
+  /* ---------- how to read ---------- */
+  .note{background:var(--ink);color:var(--white);border-radius:14px;padding:22px 24px;margin-bottom:42px;}
+  .note h3{font-size:14px;font-weight:600;margin-bottom:10px;}
+  .note p{font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.78);font-weight:300;max-width:66ch;}
+  .note p + p{margin-top:9px;}
+  .note strong{color:var(--white);font-weight:500;}
+
+  /* ---------- sections ---------- */
+  .section{margin-bottom:56px;}
+  .section-head{display:flex;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--ink);margin-bottom:26px;}
+  .section-head h2{font-size:19px;font-weight:600;letter-spacing:-0.3px;}
+  .section-head .tag{font-size:11px;color:var(--gray);font-weight:400;margin-left:auto;}
+  .section-intro{font-size:13px;color:var(--mid);font-weight:300;line-height:1.65;margin:-14px 0 24px;max-width:66ch;}
+
+  /* ---------- screen block ---------- */
+  .screen{border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:14px;}
+  .screen-top{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;flex-wrap:wrap;}
+  .screen-id{font-size:11.5px;color:var(--gray);font-weight:500;min-width:34px;}
+  .screen-name{font-size:15.5px;font-weight:600;letter-spacing:-0.2px;}
+  .screen-kind{font-size:10.5px;font-weight:500;color:var(--mid);background:var(--bgL);border:1px solid var(--line);border-radius:20px;padding:2px 9px;}
+  .screen-kind.opt{color:var(--gray);}
+  .screen-purpose{font-size:12.5px;color:var(--mid);font-weight:300;margin:0 0 16px 44px;line-height:1.6;max-width:62ch;}
+
+  .rows{margin-left:44px;}
+  .row{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:9px 0;border-top:1px solid var(--lineL);}
+  .row:first-child{border-top:none;padding-top:0;}
+  .row-k{font-size:11px;color:var(--gray);font-weight:500;padding-top:2px;}
+  .row-k .key{display:block;font-size:10px;color:#B4B4B4;font-weight:400;margin-top:3px;word-break:break-all;line-height:1.4;}
+  .row-v{font-size:13.5px;color:var(--ink);font-weight:400;line-height:1.55;}
+  .row-v.small{font-size:12.5px;color:var(--mid);font-weight:300;}
+
+  ul.opts{list-style:none;display:flex;flex-direction:column;gap:5px;}
+  ul.opts li{font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:9px;background:var(--white);}
+  ul.opts li .resp{display:block;font-size:11.5px;color:var(--mid);font-weight:300;margin-top:4px;line-height:1.5;}
+  ul.opts li.mute{color:var(--gray);}
+
+  .dev{margin:14px 0 0 44px;padding:11px 14px;background:var(--bgL);border-radius:10px;font-size:11.5px;color:var(--mid);font-weight:300;line-height:1.6;}
+  .dev b{font-weight:500;color:var(--ink);}
+
+  /* ---------- states table ---------- */
+  table{width:100%;border-collapse:collapse;margin-top:6px;}
+  th{font-size:10.5px;color:var(--gray);font-weight:500;text-align:left;padding:0 12px 9px 0;border-bottom:1px solid var(--line);}
+  td{font-size:12.5px;padding:10px 12px 10px 0;border-bottom:1px solid var(--lineL);vertical-align:top;font-weight:300;color:var(--mid);line-height:1.55;}
+  td:first-child{color:var(--ink);font-weight:400;width:30%;}
+  td code{font-size:10.5px;color:var(--gray);display:block;margin-top:3px;word-break:break-all;}
+
+  /* ---------- json ---------- */
+  details{border:1px solid var(--line);border-radius:14px;padding:18px 22px;}
+  summary{font-size:14px;font-weight:600;cursor:pointer;list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:' ▾';color:var(--gray);font-weight:400;}
+  details[open] summary::after{content:' ▴';}
+  pre{margin-top:16px;background:var(--bgL);border-radius:10px;padding:18px;overflow-x:auto;font-family:'Inter',monospace;font-size:11px;line-height:1.7;color:var(--ink);font-weight:400;}
+
+  .open{border-left:2px solid var(--ink);padding-left:16px;margin-top:8px;}
+  .open li{font-size:13px;color:var(--mid);font-weight:300;line-height:1.7;margin-bottom:8px;list-style:none;}
+  .open li b{font-weight:500;color:var(--ink);}
+
+  @media (max-width:640px){
+    .wrap{padding:44px 18px 80px;}
+    .screen-purpose,.rows,.dev{margin-left:0;}
+    .row{grid-template-columns:1fr;gap:3px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <h1>Onboarding + perfilado</h1>
+    <p class="sub">Todos los textos del primer ingreso a Nora, pantalla por pantalla, con claves de i18n listas para implementar. Español rioplatense, voseo, tono de Nora en primera persona.</p>
+    <div class="meta">
+      <span><b>v1</b> · para revisión</span>
+      <span>Locale base <b>es-AR</b></span>
+      <span>Para <b>Enoc</b> — Expo / React Native</span>
+      <span>Pantallas: <b>24</b></span>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>Cómo leer este documento</h3>
+    <p>Cada bloque es una pantalla. <strong>Clave</strong> es el string de i18n; <strong>valor</strong> es el copy final en es-AR. Todo lo que está entre llaves — <strong>{nombre}</strong>, <strong>{mail}</strong>, <strong>{moneda}</strong>, <strong>{seg}</strong> — es interpolación, no texto.</p>
+    <p>Una aclaración de nombre: acá <strong>"perfilado" no es KYC regulatorio</strong>. No verificamos identidad ni pedimos documento: son preguntas opcionales para calibrar presupuestos e insights. Lo separo porque "KYC" en fintech significa otra cosa y no queremos que quede así en el código ni en la base.</p>
+    <p>Regla transversal: <strong>ninguna pregunta de perfilado es obligatoria</strong>. En vez de un "Saltar" chiquito arriba, la salida vive dentro de las opciones ("Prefiero no decirlo") — se siente como una respuesta válida y no como abandonar el flujo.</p>
+  </div>
+
+  <!-- ══════════════ 1 ══════════════ -->
+  <div class="section">
+    <div class="section-head"><h2>Entrada y cuenta</h2><span class="tag">pantallas 01–06</span></div>
+    <p class="section-intro">El objetivo acá es llegar al producto lo más rápido posible. Nada de carrusel de bienvenida de tres slides: una sola pantalla que dice qué es Nora y ofrece los accesos.</p>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">01</span><span class="screen-name">Splash</span><span class="screen-kind">sin interacción</span></div>
+      <p class="screen-purpose">Lockup animado: el personaje entra desde la izquierda y se acomoda al centro. Dura lo que tarda el bootstrap de la app.</p>
+      <div class="rows">
+        <div class="row"><div class="row-k">Lockup<span class="key">splash.lockup</span></div><div class="row-v">Meet nora</div></div>
+        <div class="row"><div class="row-k">Tagline<span class="key">splash.tagline</span></div><div class="row-v">Tu plata, con alguien que la entiende.</div></div>
+        <div class="row"><div class="row-k">Firma<span class="key">splash.byline</span></div><div class="row-v">by Mujer Financiera</div></div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">02</span><span class="screen-name">Bienvenida y accesos</span></div>
+      <p class="screen-purpose">Única pantalla de venta antes del login. Dice qué hace la app en una línea y ofrece los tres accesos.</p>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">auth.welcome.title</span></div><div class="row-v">Ordenar tu plata puede ser simple.</div></div>
+        <div class="row"><div class="row-k">Bajada<span class="key">auth.welcome.body</span></div><div class="row-v">Registrá lo que gastás en segundos y enterate de verdad a dónde se te va la plata.</div></div>
+        <div class="row"><div class="row-k">Botones<span class="key">auth.cta.apple<br>auth.cta.google<br>auth.cta.email</span></div><div class="row-v"><ul class="opts"><li>Continuar con Apple</li><li>Continuar con Google</li><li>Continuar con mail</li></ul></div></div>
+        <div class="row"><div class="row-k">Link inferior<span class="key">auth.cta.login</span></div><div class="row-v">Ya tengo cuenta</div></div>
+        <div class="row"><div class="row-k">Legal<span class="key">auth.legal</span></div><div class="row-v small">Al continuar aceptás los Términos y la Política de privacidad.</div></div>
+      </div>
+      <div class="dev"><b>Nota:</b> "Términos" y "Política de privacidad" son dos links separados dentro del mismo string. Si el i18n no soporta rich text inline, partirlo en <code>auth.legal.prefix</code> + dos labels.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">03</span><span class="screen-name">Crear cuenta con mail</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">auth.signup.title</span></div><div class="row-v">Creá tu cuenta</div></div>
+        <div class="row"><div class="row-k">Campo mail<span class="key">auth.field.email.label<br>auth.field.email.placeholder</span></div><div class="row-v">Tu mail<br><span class="row-v small">vos@mail.com</span></div></div>
+        <div class="row"><div class="row-k">Campo clave<span class="key">auth.field.password.label<br>auth.field.password.helper</span></div><div class="row-v">Contraseña<br><span class="row-v small">Mínimo 8 caracteres</span></div></div>
+        <div class="row"><div class="row-k">CTA<span class="key">auth.signup.cta</span></div><div class="row-v">Crear cuenta</div></div>
+      </div>
+      <div class="dev"><b>Estados de error</b><br>Mail inválido → <b>Ese mail no parece válido. Revisalo y probá de nuevo.</b><br>Mail ya registrado → <b>Ya hay una cuenta con ese mail. ¿Entramos?</b> + CTA "Iniciar sesión"<br>Contraseña corta → <b>Te faltan caracteres: tienen que ser 8 o más.</b></div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">04</span><span class="screen-name">Verificación por código</span></div>
+      <p class="screen-purpose">Código de 6 dígitos en vez de link de verificación: resuelve el pedido de que el flujo sea app → mail → app, sin pasar por el browser.</p>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">auth.verify.title</span></div><div class="row-v">Te mandamos un código</div></div>
+        <div class="row"><div class="row-k">Bajada<span class="key">auth.verify.body</span></div><div class="row-v">Escribí los 6 números que te llegaron a {mail}. Si no lo ves, fijate en correo no deseado.</div></div>
+        <div class="row"><div class="row-k">Reenvío<span class="key">auth.verify.resend<br>auth.verify.resend.wait</span></div><div class="row-v">Reenviar código<br><span class="row-v small">Podés pedir otro en {seg} s</span></div></div>
+        <div class="row"><div class="row-k">Cambiar mail<span class="key">auth.verify.changeEmail</span></div><div class="row-v">Me equivoqué de mail</div></div>
+      </div>
+      <div class="dev"><b>Estados de error</b><br>Código incorrecto → <b>Ese código no coincide. Fijate si lo copiaste completo.</b><br>Código vencido → <b>El código venció. Te mandamos uno nuevo.</b><br><b>Nota iOS:</b> habilitar autofill del SMS/mail con <code>textContentType="oneTimeCode"</code>.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">05</span><span class="screen-name">Iniciar sesión</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">auth.login.title</span></div><div class="row-v">Hola de nuevo</div></div>
+        <div class="row"><div class="row-k">CTA<span class="key">auth.login.cta</span></div><div class="row-v">Entrar</div></div>
+        <div class="row"><div class="row-k">Link<span class="key">auth.login.forgot</span></div><div class="row-v">Olvidé mi contraseña</div></div>
+      </div>
+      <div class="dev"><b>Error:</b> Mail o contraseña incorrectos. Probá otra vez. — un solo mensaje genérico, sin decir cuál de los dos está mal.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">06</span><span class="screen-name">Recuperar contraseña</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">auth.recover.title</span></div><div class="row-v">Recuperemos tu cuenta</div></div>
+        <div class="row"><div class="row-k">Bajada<span class="key">auth.recover.body</span></div><div class="row-v">Poné tu mail y te mando un código para que armes una contraseña nueva.</div></div>
+        <div class="row"><div class="row-k">Confirmación<span class="key">auth.recover.sent</span></div><div class="row-v">Si hay una cuenta con ese mail, el código llega en un minuto.</div></div>
+        <div class="row"><div class="row-k">Nueva clave<span class="key">auth.recover.newPassword.title</span></div><div class="row-v">Armá una contraseña nueva</div></div>
+        <div class="row"><div class="row-k">Éxito<span class="key">auth.recover.success</span></div><div class="row-v">Listo, contraseña cambiada.</div></div>
+      </div>
+      <div class="dev"><b>Por qué "si hay una cuenta":</b> no confirmamos si el mail existe en la base. Es la práctica estándar para no filtrar qué mails están registrados.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════ 2 ══════════════ -->
+  <div class="section">
+    <div class="section-head"><h2>Setup</h2><span class="tag">pantallas 07–17</span></div>
+    <p class="section-intro">Una pregunta por pantalla, con stepper arriba. El orden está pensado por temperatura: arranca por lo fácil y neutro (nombre, país), pasa por la pregunta emocional en el medio — cuando ya hay algo de confianza — y deja plata y deuda para el final, cuando saltar ya no se siente como no haber empezado.</p>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">07</span><span class="screen-name">Presentación de Nora</span></div>
+      <p class="screen-purpose">Fija el contrato: cuánto dura, para qué sirve y que se puede saltar. Baja el abandono en las preguntas sensibles de después.</p>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">onboarding.intro.title</span></div><div class="row-v">Hola, soy Nora.</div></div>
+        <div class="row"><div class="row-k">Cuerpo<span class="key">onboarding.intro.body</span></div><div class="row-v">Te hago unas preguntas cortas para dejar la app a tu medida. Son dos minutos, y las que no quieras contestar las salteamos.</div></div>
+        <div class="row"><div class="row-k">CTA<span class="key">onboarding.intro.cta</span></div><div class="row-v">Dale, empecemos</div></div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">08</span><span class="screen-name">Nombre</span><span class="screen-kind">personalización</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Pregunta<span class="key">onboarding.name.title</span></div><div class="row-v">¿Cómo te llamás?</div></div>
+        <div class="row"><div class="row-k">Ayuda<span class="key">onboarding.name.helper</span></div><div class="row-v small">Es para hablarte por tu nombre, nada más.</div></div>
+        <div class="row"><div class="row-k">Placeholder<span class="key">onboarding.name.placeholder</span></div><div class="row-v small">Tu nombre</div></div>
+        <div class="row"><div class="row-k">CTA<span class="key">common.cta.continue</span></div><div class="row-v">Seguir</div></div>
+      </div>
+      <div class="dev"><b>Error:</b> Escribí un nombre para seguir. · Guardar solo el primer nombre, sin apellido. Si viene de Apple/Google, precargarlo y mostrar la pantalla igual para confirmar.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">09</span><span class="screen-name">País</span><span class="screen-kind">configuración</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Pregunta<span class="key">onboarding.country.title</span></div><div class="row-v">¿Desde dónde me escribís?</div></div>
+        <div class="row"><div class="row-k">Ayuda<span class="key">onboarding.country.helper</span></div><div class="row-v small">Con esto ajusto la moneda, los formatos de fecha y monto, y algunas categorías.</div></div>
+      </div>
+      <div class="dev"><b>Nota:</b> 12 países hispanohablantes. Precargar por locale del dispositivo, pero siempre editable — mucha usuaria MF vive fuera de su país de origen. El país define moneda default, separador decimal y los rangos de ingreso de la pantalla 14.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">10</span><span class="screen-name">Moneda principal</span><span class="screen-kind">configuración</span></div>
+      <p class="screen-purpose">Confirmación, no elección desde cero: llega pre-seleccionada por país. Un tap y sigue.</p>
+      <div class="rows">
+        <div class="row"><div class="row-k">Pregunta<span class="key">onboarding.currency.title</span></div><div class="row-v">Tu moneda principal es {moneda}, ¿no?</div></div>
+        <div class="row"><div class="row-k">Ayuda<span class="key">onboarding.currency.helper</span></div><div class="row-v small">Es la moneda en la que vas a ver tus totales. La cambiás cuando quieras.</div></div>
+        <div class="row"><div class="row-k">CTA<span class="key">onboarding.currency.cta</span></div><div class="row-v">Sí, esa</div></div>
+        <div class="row"><div class="row-k">Secundario<span class="key">onboarding.currency.other</span></div><div class="row-v">Uso otra</div></div>
+        <div class="row"><div class="row-k">Multi-moneda<span class="key">onboarding.currency.multi</span></div><div class="row-v">También manejo otras monedas</div></div>
+        <div class="row"><div class="row-k">Ayuda multi<span class="key">onboarding.currency.multi.helper</span></div><div class="row-v small">Cada moneda vive como una cuenta aparte. No las mezclo ni las convierto sin avisarte.</div></div>
+      </div>
+      <div class="dev"><b>Nota:</b> la frase de multi-moneda es una promesa de producto — no convertir sin avisar. Vale sostenerla en toda la app, sobre todo en los totales del home.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">11</span><span class="screen-name">Intención de uso</span><span class="screen-kind">intent</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Pregunta<span class="key">onboarding.intent.title</span></div><div class="row-v">¿Para qué querés usarme?</div></div>
+        <div class="row"><div class="row-k">Ayuda<span class="key">onboarding.intent.helper</span></div><div class="row-v small">Con esto decido qué mostrarte primero. No es para siempre.</div></div>
+        <div class="row"><div class="row-k">Opciones<span class="key">onboarding.intent.opt.*</span></div><div class="row-v"><ul class="opts">
+          <li>Para registrar lo que gasto <span class="resp">→ home con foco en movimientos</span></li>
+          <li>Para armar un presupuesto <span class="resp">→ home con foco en presupuesto</span></li>
+          <li>Para entender en qué se me va la plata <span class="resp">→ home con foco en categorías</span></li>
+          <li>Un poco de todo <span class="resp">→ home default</span></li>
+        </ul></div></div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">12</span><span class="screen-name">Cómo te llevás con tu plata</span><span class="screen-kind">emocional</span></div>
+      <p class="screen-purpose">El momento que separa a Nora de una app de gastos. No configura nada: calibra el tono de los insights y hace que la usuaria sienta que del otro lado hay alguien.</p>
+      <div class="rows">
+        <div class="row"><div class="row-k">Pregunta<span class="key">onboarding.feeling.title</span></div><div class="row-v">¿Cómo te llevás hoy con tu plata?</div></div>
+        <div class="row"><div class="row-k">Ayuda<span class="key">onboarding.feeling.helper</span></div><div class="row-v small">No hay respuesta correcta. Esto queda entre nosotras.</div></div>
+        <div class="row"><div class="row-k">Opciones y respuesta de Nora<span class="key">onboarding.feeling.opt.*<br>onboarding.feeling.reply.*</span></div><div class="row-v"><ul class="opts">
+          <li>La tengo bastante controlada <span class="resp">Buenísimo. Entonces lo mío va a ser ayudarte a afinar, no a ordenar desde cero.</span></li>
+          <li>Más o menos, va y viene <span class="resp">Ahí está casi todo el mundo. Con dos semanas seguidas de registro ya se acomoda bastante.</span></li>
+          <li>Estoy perdida, no sé a dónde se va <span class="resp">Para eso estoy. No hace falta que sepas nada de antes: empezamos por registrar y el mapa aparece solo.</span></li>
+          <li>Prefiero no pensar en eso <span class="resp">Te entiendo, y no te voy a hacer pensar de más. Vamos de a poco, a tu ritmo.</span></li>
+        </ul></div></div>
+      </div>
+      <div class="dev"><b>Nota de interacción:</b> la respuesta de Nora aparece en la misma pantalla, debajo de la opción elegida, con el personaje. No es una pantalla nueva — si no, el flujo se hace el doble de largo. El CTA cambia a <b>Seguir</b> recién cuando la respuesta terminó de aparecer.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">13</span><span class="screen-name">Antesala del perfilado</span><span class="screen-kind">transición</span></div>
+      <p class="screen-purpose">Pantalla puente antes de preguntar por plata. Explica el por qué y el qué pasa con el dato. Es lo que hace que la usuaria conteste en vez de saltar.</p>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">onboarding.profiling.intro.title</span></div><div class="row-v">Ahora, dos preguntas de plata.</div></div>
+        <div class="row"><div class="row-k">Cuerpo<span class="key">onboarding.profiling.intro.body</span></div><div class="row-v">Me sirven para sugerirte presupuestos que tengan sentido para tu vida y no para un promedio. Son opcionales, van por rangos y no se comparten con nadie.</div></div>
+        <div class="row"><div class="row-k">CTA<span class="key">onboarding.profiling.intro.cta</span></div><div class="row-v">Entendido</div></div>
+        <div class="row"><div class="row-k">Secundario<span class="key">onboarding.profiling.intro.skip</span></div><div class="row-v">Saltar estas preguntas</div></div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">14</span><span class="screen-name">Ingresos</span><span class="screen-kind opt">perfilado · opcional</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Pregunta<span class="key">onboarding.income.title</span></div><div class="row-v">¿En qué rango están tus ingresos por mes?</div></div>
+        <div class="row"><div class="row-k">Ayuda<span class="key">onboarding.income.helper</span></div><div class="row-v small">Aproximado está perfecto. Es para calibrar el presupuesto, no para juzgar nada.</div></div>
+        <div class="row"><div class="row-k">Opciones (AR)<span class="key">onboarding.income.opt.*</span></div><div class="row-v"><ul class="opts">
+          <li>Menos de $500.000</li>
+          <li>Entre $500.000 y $1.000.000</li>
+          <li>Entre $1.000.000 y $2.000.000</li>
+          <li>Más de $2.000.000</li>
+          <li>Varía mucho mes a mes</li>
+          <li class="mute">Prefiero no decirlo</li>
+        </ul></div></div>
+      </div>
+      <div class="dev"><b>Importante:</b> los rangos son por país y se desactualizan rápido con inflación. No hardcodear — traerlos de config remota, con fallback local. <b>"Varía mucho mes a mes"</b> no es relleno: es la realidad de buena parte de la comunidad MF (monotributistas, freelance) y debería activar un presupuesto por porcentaje en lugar de por monto fijo.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">15</span><span class="screen-name">Personas a cargo</span><span class="screen-kind opt">perfilado · opcional</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Pregunta<span class="key">onboarding.dependents.title</span></div><div class="row-v">¿Hay alguien que dependa de tu plata?</div></div>
+        <div class="row"><div class="row-k">Ayuda<span class="key">onboarding.dependents.helper</span></div><div class="row-v small">Cambia bastante cómo se reparte un presupuesto.</div></div>
+        <div class="row"><div class="row-k">Opciones<span class="key">onboarding.dependents.opt.*</span></div><div class="row-v"><ul class="opts">
+          <li>Por ahora, solo yo</li>
+          <li>Una persona más</li>
+          <li>Dos o tres</li>
+          <li>Cuatro o más</li>
+          <li class="mute">Prefiero no decirlo</li>
+        </ul></div></div>
+      </div>
+      <div class="dev"><b>Por qué "dependa de tu plata"</b> y no "cuántos dependientes económicos tenés": lo segundo es lenguaje de formulario bancario. Lo primero es como se habla.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">16</span><span class="screen-name">Deudas</span><span class="screen-kind opt">perfilado · opcional</span></div>
+      <p class="screen-purpose">La pregunta más delicada del flujo. Toda respuesta recibe algo de vuelta, y ninguna respuesta habilita una devolución con culpa.</p>
+      <div class="rows">
+        <div class="row"><div class="row-k">Pregunta<span class="key">onboarding.debt.title</span></div><div class="row-v">¿Estás pagando alguna deuda?</div></div>
+        <div class="row"><div class="row-k">Ayuda<span class="key">onboarding.debt.helper</span></div><div class="row-v small">Opcional. Sirve para que no te proponga metas imposibles.</div></div>
+        <div class="row"><div class="row-k">Opciones y respuesta<span class="key">onboarding.debt.opt.*<br>onboarding.debt.reply.*</span></div><div class="row-v"><ul class="opts">
+          <li>Sí, y la tengo clara <span class="resp">Perfecto. Cuando quieras la cargamos y le seguimos el ritmo juntas.</span></li>
+          <li>Sí, y me cuesta <span class="resp">Gracias por contármelo. Tener deuda no es un fracaso: es un número más, y los números se ordenan. Empecemos por ver el mes.</span></li>
+          <li>No, ninguna <span class="resp">Qué bueno. Entonces apuntemos a que siga así.</span></li>
+          <li class="mute">Prefiero no decirlo <span class="resp">Listo, seguimos.</span></li>
+        </ul></div></div>
+      </div>
+      <div class="dev"><b>Regla de tono para toda la app:</b> nunca usar "deberías", "mal", "excediste" ni signos de exclamación alarmados en nada que toque deuda. Y la respuesta a "me cuesta" no promete solucionarla — propone mirarla. Prometer de más acá es traicionar al primer insight.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">17</span><span class="screen-name">Tarjeta de crédito</span><span class="screen-kind">configuración</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Pregunta<span class="key">onboarding.card.title</span></div><div class="row-v">¿Usás tarjeta de crédito?</div></div>
+        <div class="row"><div class="row-k">Ayuda<span class="key">onboarding.card.helper</span></div><div class="row-v small">Si la usás te activo tarjetas y cuotas. Si no, lo dejo oculto para no llenarte la pantalla.</div></div>
+        <div class="row"><div class="row-k">Opciones<span class="key">onboarding.card.opt.yes<br>onboarding.card.opt.no</span></div><div class="row-v"><ul class="opts"><li>Sí, uso</li><li>No, no uso</li></ul></div></div>
+        <div class="row"><div class="row-k">Respuesta sí<span class="key">onboarding.card.reply.yes</span></div><div class="row-v small">Genial. Cuando quieras cargamos el cierre y el vencimiento — te lo recuerdo desde el home.</div></div>
+      </div>
+      <div class="dev"><b>Nota:</b> no dar de alta la tarjeta acá. Alarga el onboarding y pide datos que la usuaria capaz no tiene a mano. Queda como tarea pendiente en el home.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">18</span><span class="screen-name">Modo de registro favorito</span><span class="screen-kind">UX</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Pregunta<span class="key">onboarding.captureMode.title</span></div><div class="row-v">¿Cómo te resulta más cómodo cargar un gasto?</div></div>
+        <div class="row"><div class="row-k">Ayuda<span class="key">onboarding.captureMode.helper</span></div><div class="row-v small">Lo dejo como opción principal. Los otros modos siguen estando.</div></div>
+        <div class="row"><div class="row-k">Opciones<span class="key">onboarding.captureMode.opt.*</span></div><div class="row-v"><ul class="opts">
+          <li>Escribiéndolo</li>
+          <li>Contándotelo en voz alta</li>
+          <li>Sacándole una foto al ticket</li>
+          <li>Por WhatsApp</li>
+        </ul></div></div>
+      </div>
+      <div class="dev"><b>Si elige WhatsApp:</b> abre el sub-flujo de vinculación del bot (pantallas 19 y 20). Los otros tres modos configuran el default del FAB y siguen derecho al cierre.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════ 3 ══════════════ -->
+  <div class="section">
+    <div class="section-head"><h2>WhatsApp, permisos y cierre</h2><span class="tag">pantallas 19–22</span></div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">19</span><span class="screen-name">Vincular WhatsApp</span><span class="screen-kind opt">condicional</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">whatsapp.link.title</span></div><div class="row-v">Vinculemos tu WhatsApp</div></div>
+        <div class="row"><div class="row-k">Cuerpo<span class="key">whatsapp.link.body</span></div><div class="row-v">Poné tu número y te escribo. Me contás lo que gastaste por ahí y aparece acá, ordenado.</div></div>
+        <div class="row"><div class="row-k">Campo<span class="key">whatsapp.link.field.label</span></div><div class="row-v small">Tu número de WhatsApp</div></div>
+        <div class="row"><div class="row-k">CTA<span class="key">whatsapp.link.cta</span></div><div class="row-v">Escribime</div></div>
+        <div class="row"><div class="row-k">Secundario<span class="key">whatsapp.link.later</span></div><div class="row-v">Lo hago más adelante</div></div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">20</span><span class="screen-name">WhatsApp vinculado</span><span class="screen-kind opt">condicional</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">whatsapp.linked.title</span></div><div class="row-v">Listo, ya te escribí.</div></div>
+        <div class="row"><div class="row-k">Cuerpo<span class="key">whatsapp.linked.body</span></div><div class="row-v">Contestame cuando quieras. Todo lo que me mandes por ahí lo vas a ver también acá.</div></div>
+        <div class="row"><div class="row-k">Primer mensaje del bot<span class="key">whatsapp.bot.firstMessage</span></div><div class="row-v">Hola {nombre}, soy Nora. Cuando gastes algo, escribime acá como te salga: "2300 verdulería" y yo lo anoto. Probá ahora si querés.</div></div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">21</span><span class="screen-name">Permisos</span></div>
+      <p class="screen-purpose">Pre-permiso propio antes del diálogo del sistema. Si dice que no acá, no quemamos el permiso nativo y podemos volver a pedirlo más adelante.</p>
+      <div class="rows">
+        <div class="row"><div class="row-k">Notificaciones<span class="key">permissions.push.title<br>permissions.push.body</span></div><div class="row-v">¿Te aviso?<br><span class="row-v small">Un recordatorio corto por día para que registrar no se te pase. Nada más que eso, y lo apagás cuando quieras.</span></div></div>
+        <div class="row"><div class="row-k">CTA push<span class="key">permissions.push.cta<br>permissions.push.skip</span></div><div class="row-v">Sí, avisame · <span class="row-v small">Ahora no</span></div></div>
+        <div class="row"><div class="row-k">Biometría<span class="key">permissions.biometrics.title<br>permissions.biometrics.body</span></div><div class="row-v">¿Le ponemos candado?<br><span class="row-v small">Con {biometría} tus números quedan solo para vos, aunque alguien agarre tu teléfono.</span></div></div>
+        <div class="row"><div class="row-k">CTA biometría<span class="key">permissions.biometrics.cta<br>permissions.biometrics.skip</span></div><div class="row-v">Activar {biometría} · <span class="row-v small">Más tarde</span></div></div>
+      </div>
+      <div class="dev"><b>{biometría}</b> se resuelve en runtime: Face ID, Touch ID o "huella" según dispositivo. Nunca escribir "biometría" en el copy visible.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">22</span><span class="screen-name">Cierre del setup</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">onboarding.done.title</span></div><div class="row-v">Listo, {nombre}.</div></div>
+        <div class="row"><div class="row-k">Cuerpo<span class="key">onboarding.done.body</span></div><div class="row-v">Ya está todo configurado a tu medida. Cualquiera de estas cosas la cambiás después desde Ajustes.</div></div>
+        <div class="row"><div class="row-k">CTA<span class="key">onboarding.done.cta</span></div><div class="row-v">Cargar mi primer gasto</div></div>
+      </div>
+      <div class="dev">Mostrar debajo un resumen en chips de lo configurado: moneda, modo de registro, tarjetas sí/no. Confirma que las respuestas sirvieron para algo.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════ 4 ══════════════ -->
+  <div class="section">
+    <div class="section-head"><h2>Primer gasto guiado</h2><span class="tag">pantallas 23–24</span></div>
+    <p class="section-intro">La parte que convierte el onboarding en hábito. Si sale bien, la usuaria ya sabe hacer lo único que la app le va a pedir todos los días.</p>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">23</span><span class="screen-name">Registro guiado</span></div>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">firstExpense.title</span></div><div class="row-v">Probemos con un gasto real.</div></div>
+        <div class="row"><div class="row-k">Cuerpo<span class="key">firstExpense.body</span></div><div class="row-v">Contame algo que hayas gastado hoy o ayer. Escribilo como te salga, que yo lo ordeno.</div></div>
+        <div class="row"><div class="row-k">Placeholder<span class="key">firstExpense.placeholder</span></div><div class="row-v small">8500 café con Flor</div></div>
+        <div class="row"><div class="row-k">Procesando<span class="key">firstExpense.parsing</span></div><div class="row-v small">Dejame ver…</div></div>
+        <div class="row"><div class="row-k">Confirmación<span class="key">firstExpense.confirm.title</span></div><div class="row-v">Esto entendí. ¿Va bien?</div></div>
+        <div class="row"><div class="row-k">CTAs<span class="key">firstExpense.confirm.cta<br>firstExpense.confirm.edit</span></div><div class="row-v">Sí, guardalo · <span class="row-v small">Corregir</span></div></div>
+        <div class="row"><div class="row-k">Éxito<span class="key">firstExpense.success</span></div><div class="row-v">Listo. Ese es todo el trabajo que te voy a pedir por día.</div></div>
+        <div class="row"><div class="row-k">Saltar<span class="key">firstExpense.skip</span></div><div class="row-v small">Después lo hago</div></div>
+      </div>
+      <div class="dev"><b>Placeholder por país:</b> el ejemplo tiene que sonar local — monto creíble y comercio reconocible. Tres o cuatro por país, rotando. <b>Error de parser:</b> "No me quedó claro el monto. ¿Me lo escribís de nuevo?" — el error habla de lo que faltó, nunca de que la usuaria escribió mal.</div>
+    </div>
+
+    <div class="screen">
+      <div class="screen-top"><span class="screen-id">24</span><span class="screen-name">Home — estado vacío</span></div>
+      <p class="screen-purpose">Solo si saltó el primer gasto. Es la única pantalla del flujo que puede quedar sin datos.</p>
+      <div class="rows">
+        <div class="row"><div class="row-k">Título<span class="key">home.empty.title</span></div><div class="row-v">Todavía no hay movimientos.</div></div>
+        <div class="row"><div class="row-k">Cuerpo<span class="key">home.empty.body</span></div><div class="row-v">Cargá el primero y acá vas a empezar a ver a dónde va tu plata.</div></div>
+        <div class="row"><div class="row-k">CTA<span class="key">home.empty.cta</span></div><div class="row-v">Cargar un gasto</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ 5 ══════════════ -->
+  <div class="section">
+    <div class="section-head"><h2>Microcopy transversal</h2><span class="tag">estados y errores</span></div>
+    <table>
+      <tr><th>Situación</th><th>Texto</th></tr>
+      <tr><td>Sin conexión<code>common.error.offline</code></td><td>No hay internet. Guardé lo que pusiste y seguimos cuando vuelva la señal.</td></tr>
+      <tr><td>Error del servidor<code>common.error.server</code></td><td>Algo falló de mi lado. Probá de nuevo en un momento.</td></tr>
+      <tr><td>Volver atrás<code>common.cta.back</code></td><td>Atrás</td></tr>
+      <tr><td>Progreso del stepper<code>onboarding.stepper.progress</code></td><td>{actual} de {total}</td></tr>
+      <tr><td>Confirmar salida del onboarding<code>onboarding.exit.title / body</code></td><td>¿Lo dejamos por acá? — Lo que contestaste queda guardado. Cuando vuelvas seguimos donde estábamos.</td></tr>
+      <tr><td>Pie de las pantallas de perfilado<code>onboarding.profiling.footer</code></td><td>Esto no se comparte con nadie. Lo uso solo para ajustar lo que te muestro.</td></tr>
+    </table>
+  </div>
+
+  <!-- ══════════════ 6 ══════════════ -->
+  <div class="section">
+    <div class="section-head"><h2>Reglas de voz</h2><span class="tag">para toda la app</span></div>
+    <table>
+      <tr><th>Regla</th><th>Por qué</th></tr>
+      <tr><td>Voseo siempre: registrá, contame, fijate</td><td>Nunca "dile", "registra", "revisa". El bug de "Dile Nora" del build actual es exactamente esto.</td></tr>
+      <tr><td>Nora habla en primera persona</td><td>"Te aviso", "lo anoto", "dejame ver". La app no se describe a sí misma en tercera persona.</td></tr>
+      <tr><td>El error dice qué falta, no qué hiciste mal</td><td>"No me quedó claro el monto", no "Formato inválido".</td></tr>
+      <tr><td>Cero culpa con la plata</td><td>Nada de "deberías", "te excediste", "cuidado". Y sin signos de exclamación en contextos negativos.</td></tr>
+      <tr><td>Sentence case en todo</td><td>Títulos, botones y labels. Nada de mayúsculas de caja alta.</td></tr>
+      <tr><td>El botón nombra lo que pasa</td><td>"Cargar un gasto", no "Continuar", cuando eso es lo que hace.</td></tr>
+      <tr><td>Localismos solo en ejemplos</td><td>El copy de UI es neutro-rioplatense; lo hiperlocal vive en placeholders y ejemplos, que sí son por país.</td></tr>
+    </table>
+  </div>
+
+  <!-- ══════════════ 7 ══════════════ -->
+  <div class="section">
+    <div class="section-head"><h2>Abierto</h2><span class="tag">para definir</span></div>
+    <ul class="open">
+      <li><b>Modo invitada.</b> Estaba en el doc de flujos y acá no lo incluí: si se puede explorar sin cuenta, hay que decidir qué pasa con los datos cargados cuando después se registra. Mi propuesta es sacarlo del MVP — complica el modelo de datos y el login social ya es suficientemente barato.</li>
+      <li><b>Rangos de ingreso por país.</b> Los de Argentina son un primer valor. Faltan los otros 11 y una fuente para actualizarlos sin release.</li>
+      <li><b>Deuda.</b> Preguntamos por deuda en el onboarding pero todavía no hay módulo de deuda. O el dato solo modula el tono de los insights en MVP, o hay que definir hasta dónde llega.</li>
+      <li><b>Nombre del producto.</b> Todo el copy dice Nora. Si el nombre cambia, los strings afectados son los de splash, presentación de Nora y el primer mensaje del bot.</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════ 8 ══════════════ -->
+  <div class="section">
+    <div class="section-head"><h2>Strings</h2><span class="tag">es-AR · listo para pegar</span></div>
+    <details>
+      <summary>Ver JSON de i18n</summary>
+<pre>{
+  "splash": {
+    "lockup": "Meet nora",
+    "tagline": "Tu plata, con alguien que la entiende.",
+    "byline": "by Mujer Financiera"
+  },
+  "auth": {
+    "welcome": {
+      "title": "Ordenar tu plata puede ser simple.",
+      "body": "Registrá lo que gastás en segundos y enterate de verdad a dónde se te va la plata."
+    },
+    "cta": {
+      "apple": "Continuar con Apple",
+      "google": "Continuar con Google",
+      "email": "Continuar con mail",
+      "login": "Ya tengo cuenta"
+    },
+    "legal": "Al continuar aceptás los Términos y la Política de privacidad.",
+    "signup": { "title": "Creá tu cuenta", "cta": "Crear cuenta" },
+    "field": {
+      "email": { "label": "Tu mail", "placeholder": "vos@mail.com" },
+      "password": { "label": "Contraseña", "helper": "Mínimo 8 caracteres" }
+    },
+    "verify": {
+      "title": "Te mandamos un código",
+      "body": "Escribí los 6 números que te llegaron a {mail}. Si no lo ves, fijate en correo no deseado.",
+      "resend": "Reenviar código",
+      "resendWait": "Podés pedir otro en {seg} s",
+      "changeEmail": "Me equivoqué de mail"
+    },
+    "login": { "title": "Hola de nuevo", "cta": "Entrar", "forgot": "Olvidé mi contraseña" },
+    "recover": {
+      "title": "Recuperemos tu cuenta",
+      "body": "Poné tu mail y te mando un código para que armes una contraseña nueva.",
+      "sent": "Si hay una cuenta con ese mail, el código llega en un minuto.",
+      "newPasswordTitle": "Armá una contraseña nueva",
+      "success": "Listo, contraseña cambiada."
+    },
+    "error": {
+      "emailInvalid": "Ese mail no parece válido. Revisalo y probá de nuevo.",
+      "emailTaken": "Ya hay una cuenta con ese mail. ¿Entramos?",
+      "passwordShort": "Te faltan caracteres: tienen que ser 8 o más.",
+      "credentials": "Mail o contraseña incorrectos. Probá otra vez.",
+      "codeInvalid": "Ese código no coincide. Fijate si lo copiaste completo.",
+      "codeExpired": "El código venció. Te mandamos uno nuevo."
+    }
+  },
+  "onboarding": {
+    "intro": {
+      "title": "Hola, soy Nora.",
+      "body": "Te hago unas preguntas cortas para dejar la app a tu medida. Son dos minutos, y las que no quieras contestar las salteamos.",
+      "cta": "Dale, empecemos"
+    },
+    "name": {
+      "title": "¿Cómo te llamás?",
+      "helper": "Es para hablarte por tu nombre, nada más.",
+      "placeholder": "Tu nombre",
+      "error": "Escribí un nombre para seguir."
+    },
+    "country": {
+      "title": "¿Desde dónde me escribís?",
+      "helper": "Con esto ajusto la moneda, los formatos de fecha y monto, y algunas categorías."
+    },
+    "currency": {
+      "title": "Tu moneda principal es {moneda}, ¿no?",
+      "helper": "Es la moneda en la que vas a ver tus totales. La cambiás cuando quieras.",
+      "cta": "Sí, esa",
+      "other": "Uso otra",
+      "multi": "También manejo otras monedas",
+      "multiHelper": "Cada moneda vive como una cuenta aparte. No las mezclo ni las convierto sin avisarte."
+    },
+    "intent": {
+      "title": "¿Para qué querés usarme?",
+      "helper": "Con esto decido qué mostrarte primero. No es para siempre.",
+      "opt": {
+        "track": "Para registrar lo que gasto",
+        "budget": "Para armar un presupuesto",
+        "understand": "Para entender en qué se me va la plata",
+        "all": "Un poco de todo"
+      }
+    },
+    "feeling": {
+      "title": "¿Cómo te llevás hoy con tu plata?",
+      "helper": "No hay respuesta correcta. Esto queda entre nosotras.",
+      "opt": {
+        "inControl": "La tengo bastante controlada",
+        "soSo": "Más o menos, va y viene",
+        "lost": "Estoy perdida, no sé a dónde se va",
+        "avoid": "Prefiero no pensar en eso"
+      },
+      "reply": {
+        "inControl": "Buenísimo. Entonces lo mío va a ser ayudarte a afinar, no a ordenar desde cero.",
+        "soSo": "Ahí está casi todo el mundo. Con dos semanas seguidas de registro ya se acomoda bastante.",
+        "lost": "Para eso estoy. No hace falta que sepas nada de antes: empezamos por registrar y el mapa aparece solo.",
+        "avoid": "Te entiendo, y no te voy a hacer pensar de más. Vamos de a poco, a tu ritmo."
+      }
+    },
+    "profiling": {
+      "introTitle": "Ahora, dos preguntas de plata.",
+      "introBody": "Me sirven para sugerirte presupuestos que tengan sentido para tu vida y no para un promedio. Son opcionales, van por rangos y no se comparten con nadie.",
+      "introCta": "Entendido",
+      "introSkip": "Saltar estas preguntas",
+      "footer": "Esto no se comparte con nadie. Lo uso solo para ajustar lo que te muestro."
+    },
+    "income": {
+      "title": "¿En qué rango están tus ingresos por mes?",
+      "helper": "Aproximado está perfecto. Es para calibrar el presupuesto, no para juzgar nada.",
+      "opt": {
+        "r1": "Menos de $500.000",
+        "r2": "Entre $500.000 y $1.000.000",
+        "r3": "Entre $1.000.000 y $2.000.000",
+        "r4": "Más de $2.000.000",
+        "variable": "Varía mucho mes a mes",
+        "skip": "Prefiero no decirlo"
+      }
+    },
+    "dependents": {
+      "title": "¿Hay alguien que dependa de tu plata?",
+      "helper": "Cambia bastante cómo se reparte un presupuesto.",
+      "opt": {
+        "none": "Por ahora, solo yo",
+        "one": "Una persona más",
+        "few": "Dos o tres",
+        "many": "Cuatro o más",
+        "skip": "Prefiero no decirlo"
+      }
+    },
+    "debt": {
+      "title": "¿Estás pagando alguna deuda?",
+      "helper": "Opcional. Sirve para que no te proponga metas imposibles.",
+      "opt": {
+        "yesClear": "Sí, y la tengo clara",
+        "yesHard": "Sí, y me cuesta",
+        "no": "No, ninguna",
+        "skip": "Prefiero no decirlo"
+      },
+      "reply": {
+        "yesClear": "Perfecto. Cuando quieras la cargamos y le seguimos el ritmo juntas.",
+        "yesHard": "Gracias por contármelo. Tener deuda no es un fracaso: es un número más, y los números se ordenan. Empecemos por ver el mes.",
+        "no": "Qué bueno. Entonces apuntemos a que siga así.",
+        "skip": "Listo, seguimos."
+      }
+    },
+    "card": {
+      "title": "¿Usás tarjeta de crédito?",
+      "helper": "Si la usás te activo tarjetas y cuotas. Si no, lo dejo oculto para no llenarte la pantalla.",
+      "opt": { "yes": "Sí, uso", "no": "No, no uso" },
+      "replyYes": "Genial. Cuando quieras cargamos el cierre y el vencimiento — te lo recuerdo desde el home."
+    },
+    "captureMode": {
+      "title": "¿Cómo te resulta más cómodo cargar un gasto?",
+      "helper": "Lo dejo como opción principal. Los otros modos siguen estando.",
+      "opt": {
+        "text": "Escribiéndolo",
+        "voice": "Contándotelo en voz alta",
+        "photo": "Sacándole una foto al ticket",
+        "whatsapp": "Por WhatsApp"
+      }
+    },
+    "done": {
+      "title": "Listo, {nombre}.",
+      "body": "Ya está todo configurado a tu medida. Cualquiera de estas cosas la cambiás después desde Ajustes.",
+      "cta": "Cargar mi primer gasto"
+    },
+    "stepper": { "progress": "{actual} de {total}" },
+    "exit": {
+      "title": "¿Lo dejamos por acá?",
+      "body": "Lo que contestaste queda guardado. Cuando vuelvas seguimos donde estábamos."
+    }
+  },
+  "whatsapp": {
+    "link": {
+      "title": "Vinculemos tu WhatsApp",
+      "body": "Poné tu número y te escribo. Me contás lo que gastaste por ahí y aparece acá, ordenado.",
+      "fieldLabel": "Tu número de WhatsApp",
+      "cta": "Escribime",
+      "later": "Lo hago más adelante"
+    },
+    "linked": {
+      "title": "Listo, ya te escribí.",
+      "body": "Contestame cuando quieras. Todo lo que me mandes por ahí lo vas a ver también acá."
+    },
+    "bot": {
+      "firstMessage": "Hola {nombre}, soy Nora. Cuando gastes algo, escribime acá como te salga: \"2300 verdulería\" y yo lo anoto. Probá ahora si querés."
+    }
+  },
+  "permissions": {
+    "push": {
+      "title": "¿Te aviso?",
+      "body": "Un recordatorio corto por día para que registrar no se te pase. Nada más que eso, y lo apagás cuando quieras.",
+      "cta": "Sí, avisame",
+      "skip": "Ahora no"
+    },
+    "biometrics": {
+      "title": "¿Le ponemos candado?",
+      "body": "Con {biometria} tus números quedan solo para vos, aunque alguien agarre tu teléfono.",
+      "cta": "Activar {biometria}",
+      "skip": "Más tarde"
+    }
+  },
+  "firstExpense": {
+    "title": "Probemos con un gasto real.",
+    "body": "Contame algo que hayas gastado hoy o ayer. Escribilo como te salga, que yo lo ordeno.",
+    "placeholder": "8500 café con Flor",
+    "parsing": "Dejame ver…",
+    "confirmTitle": "Esto entendí. ¿Va bien?",
+    "confirmCta": "Sí, guardalo",
+    "confirmEdit": "Corregir",
+    "success": "Listo. Ese es todo el trabajo que te voy a pedir por día.",
+    "skip": "Después lo hago",
+    "errorAmount": "No me quedó claro el monto. ¿Me lo escribís de nuevo?"
+  },
+  "home": {
+    "empty": {
+      "title": "Todavía no hay movimientos.",
+      "body": "Cargá el primero y acá vas a empezar a ver a dónde va tu plata.",
+      "cta": "Cargar un gasto"
+    }
+  },
+  "common": {
+    "cta": { "continue": "Seguir", "back": "Atrás" },
+    "error": {
+      "offline": "No hay internet. Guardé lo que pusiste y seguimos cuando vuelva la señal.",
+      "server": "Algo falló de mi lado. Probá de nuevo en un momento."
+    }
+  }
+}</pre>
+    </details>
+  </div>
+
+</div>
+</body>
+</html>
